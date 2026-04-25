@@ -1,10 +1,18 @@
 /*
     This script seeds the database with movie embeddings.
+
+    Flow: 
+        Grabs movies.txt file string
+        Splits w/ langChain text splitter
+        Loops through to create openai embedding for each
+        Stores list of embeddings into supabase table
+
+    Prereq:
+        Ensure movies table is declared in supabase database
+    
 */
 import { readFile } from 'node:fs/promises'
 import { openai, supabase } from "../config.js";
-
-
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
 console.log(process.cwd())
