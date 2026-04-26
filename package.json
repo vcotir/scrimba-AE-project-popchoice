@@ -18,6 +18,8 @@
     "hono": "^4.12.15",
     "lucide-react": "^1.11.0",
     "openai": "4.12.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "react-hook-form": "^7.73.1",
     "tailwindcss": "^4.2.4",
     "vite": "latest",
@@ -25,6 +27,7 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
     "concurrently": "^9.2.1",
     "dotenv": "^17.4.2"
   }
