@@ -1,46 +1,22 @@
 {
   "workbench.colorCustomizations": {
-    // ── Overall Editor & Background ──
     "editor.background": "#1F0A0A",
     "editor.foreground": "#F5D0D0",
     "editorLineNumber.foreground": "#FF6666",
     "editorCursor.foreground": "#FF3355",
     "editor.selectionBackground": "#FF335544",
-
-    // ── Sidebar & Activity Bar (left panel) ──
     "sideBar.background": "#2A0F0F",
     "sideBar.foreground": "#E8B8B8",
-    "activityBar.background": "#3A0F0F",
-    "activityBar.foreground": "#FF6666",
     "activityBar.activeBorder": "#FF3355",
-
-    // ── Title Bar (top of window) ──
-    "titleBar.activeBackground": "#3A0F0F",
-    "titleBar.activeForeground": "#FFCCCC",
-    "titleBar.inactiveBackground": "#220F0F",
-    "titleBar.inactiveForeground": "#AA6666",
-
-    // ── Tabs ──
     "tab.activeBackground": "#2A0F0F",
     "tab.activeForeground": "#FFCCCC",
     "tab.inactiveBackground": "#1F0A0A",
     "tab.inactiveForeground": "#AA7777",
-    "tab.activeBorder": "#FF3355",
-
-    // ── Status Bar (bottom) ──
-    "statusBar.background": "#3A0F0F",
-    "statusBar.foreground": "#FFCCCC",
-    "statusBar.debuggingBackground": "#FF3355",
-
-    // ── Terminal (keeps your red terminal request) ──
     "terminal.background": "#2C0A0A",
     "terminal.foreground": "#F8E0E0",
     "terminalCursor.foreground": "#FF3355",
     "terminal.selectionBackground": "#FF335566",
-
-    // ── Panel (terminal/output panel) ──
     "panel.background": "#2C0A0A",
-    "panel.border": "#FF3355",
     "panelTitle.activeForeground": "#FF6666"
   },
 
