@@ -1,7 +1,17 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input"
+import { create } from "zustand";
 
+const useRecommendation = create((set) => ({
+  favorite_movie: "",
+  update_favorite_movie: (fav_movie) => set(() => ({ favorite_movie: fav_movie })),
+
+  newness: "",
+  update_newness: (newness) => set(() => ({ newness: newness })),
+
+  fun_or_serious: "",
+  update_fun_or_serious: (fun_or_serious) => set(() => ({ fun_or_serious: fun_or_serious })),
+}));
 
 export default function App() {
     const { 
@@ -30,40 +40,43 @@ export default function App() {
 
     return (
       <>
-        <img src="" alt="" />
-        <h1>PopChoice</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label>What’s your favorite movie and why?</label>
-            <Input
-              {...register("favorite_movie", {
+        <div className="grid place-content-center">
+          <img src="assets/PopChoice Icon.png" className="w-24"></img>
+          <h1>PopChoice</h1>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label>What’s your favorite movie and why?</label>
+              <Input
+                {...register("favorite_movie", {
                   required: "We'd like to learn about your favorite movie :)",
-                  value: "Inception"
-              })}
-            />
-          </div>
+                  value: "Inception",
+                })}
+              />
+            </div>
 
-          <div>
-            <label>Are you in the mood for something new or a classic?</label>
-            <Input
-              {...register("newness", {
+            <div>
+              <label>Are you in the mood for something new or a classic?</label>
+              <Input
+                {...register("newness", {
                   required: "We'd like to learn about your favorite movie :)",
-                  value: "New all the way!"
-              })}
-            />
-          </div>
+                  value: "New all the way!",
+                })}
+              />
+            </div>
 
-          <div>
-            <label>Do you wanna have fun or do you want something</label>
-            <Input
-              {...register("fun_or_serious", {
+            <div>
+              <label>Do you wanna have fun or do you want something serious?</label>
+              <Input
+                {...register("fun_or_serious", {
                   required: "We'd like to learn about your favorite movie :)",
-                  value: "A generous splash of fun please!"
-              })}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+                  
+                  value: "A generous splash of fun please!",
+                })}
+              />
+            </div>
+            <button type="submit">Let's Go</button>
+          </form>
+        </div>
       </>
     );
 }
