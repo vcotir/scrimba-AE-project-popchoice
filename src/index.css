@@ -128,3 +128,16 @@
     @apply font-sans;
     }
 }
+
+.bg-green-pasty {
+  background-color: #51E08A;
+}
+
+.bg-light-blue-purple {
+  background-color: #3B4877;
+}
+
+body {
+  background-color: #000C36;
+  color: white;
+}

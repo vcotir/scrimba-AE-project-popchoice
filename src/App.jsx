@@ -47,6 +47,7 @@ export default function App() {
             <div>
               <label>What’s your favorite movie and why?</label>
               <Input
+                className={"bg-light-blue-purple"}
                 {...register("favorite_movie", {
                   required: "We'd like to learn about your favorite movie :)",
                   value: "Inception",
@@ -57,6 +58,7 @@ export default function App() {
             <div>
               <label>Are you in the mood for something new or a classic?</label>
               <Input
+                className={"bg-light-blue-purple"}
                 {...register("newness", {
                   required: "We'd like to learn about your favorite movie :)",
                   value: "New all the way!",
@@ -65,16 +67,21 @@ export default function App() {
             </div>
 
             <div>
-              <label>Do you wanna have fun or do you want something serious?</label>
+              <label>
+                Do you wanna have fun or do you want something serious?
+              </label>
               <Input
+                className={"bg-light-blue-purple"}
                 {...register("fun_or_serious", {
                   required: "We'd like to learn about your favorite movie :)",
-                  
+
                   value: "A generous splash of fun please!",
                 })}
               />
             </div>
-            <button type="submit">Let's Go</button>
+            <button type="submit" className="text-black bg-green-pasty ">
+              Let's Go
+            </button>
           </form>
         </div>
       </>
