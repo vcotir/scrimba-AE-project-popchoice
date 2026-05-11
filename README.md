@@ -1,22 +1,61 @@
-# Getting Started
-Install the dependencies and run the project
-```
+# PopChoice
+
+PopChoice is a movie recommendation app that asks what kind of movie mood you are in, then uses semantic search and OpenAI to suggest a fitting pick.
+
+The React frontend collects three preferences:
+
+- your favorite movie and why you like it
+- whether you want something new or classic
+- whether you want something fun, serious, or somewhere in between
+
+The backend turns those answers into an embedding, searches Supabase for nearby movie context, and asks OpenAI to produce a short conversational recommendation.
+
+## Tech Stack
+
+- React + Vite
+- Tailwind CSS
+- React Hook Form
+- Zustand
+- Hono server
+- OpenAI embeddings and chat completions
+- Supabase vector search
+
+## Getting Started
+
+Install dependencies:
+
+```bash
 npm install
-npm start
 ```
 
-Head over to https://vitejs.dev/ to learn more about configuring vite
-## About Scrimba
+Create a `.env` file with:
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Fullstack Developer Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+```bash
+OPENAI_API_KEY=your_openai_api_key
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_API_KEY=your_supabase_api_key
+```
 
-- [Our courses](https://scrimba.com/courses)
-- [The Frontend Career Path](https://scrimba.com/fullstack-path-c0fullstack)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+Run the frontend and backend together:
 
-Happy Coding!
+```bash
+npm run dev
+```
 
-## PopChoice
-This projects suggests movies that everyone can all enjoy together.
+The Vite app runs in the browser, and the Hono API listens on:
+
+```text
+http://localhost:3000/recommendation
+```
+
+## How It Works
+
+1. The user submits their movie preferences.
+2. `server.js` combines those answers into a search query.
+3. OpenAI creates an embedding for the query.
+4. Supabase runs the `match_movies` RPC to find relevant movie context.
+5. OpenAI writes the final recommendation using that context.
+
+## Notes
+
+This project expects Supabase to have movie content available for vector search and an RPC function named `match_movies`. Without that database setup, the frontend will run, but recommendations will fail when the backend tries to search for matching movie context.
