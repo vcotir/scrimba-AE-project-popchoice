@@ -36,6 +36,14 @@ SUPABASE_URL=your_supabase_project_url
 SUPABASE_API_KEY=your_supabase_api_key
 ```
 
+Set up the Supabase semantic search function by running:
+
+```text
+reference_and_scripts/db_semantic_search.sql
+```
+
+That script creates the `match_movies` RPC used by `server.js` to search movie embeddings.
+
 Run the frontend and backend together:
 
 ```bash
@@ -58,4 +66,4 @@ http://localhost:3000/recommendation
 
 ## Notes
 
-This project expects Supabase to have movie content available for vector search and an RPC function named `match_movies`. Without that database setup, the frontend will run, but recommendations will fail when the backend tries to search for matching movie context.
+This project expects Supabase to have movie content available for vector search and an RPC function named `match_movies`. The RPC is defined in `reference_and_scripts/db_semantic_search.sql`. Without that database setup, the frontend will run, but recommendations will fail when the backend tries to search for matching movie context.
