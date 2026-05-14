@@ -36,13 +36,31 @@ SUPABASE_URL=your_supabase_project_url
 SUPABASE_API_KEY=your_supabase_api_key
 ```
 
-Set up the Supabase semantic search function by running:
+## Database Setup
+
+PopChoice needs a Supabase `movies` table populated with movie text chunks and embeddings.
+
+First, create the table by running:
+
+```text
+reference_and_scripts/movies.sql
+```
+
+Then create the semantic search RPC by running:
 
 ```text
 reference_and_scripts/db_semantic_search.sql
 ```
 
 That script creates the `match_movies` RPC used by `server.js` to search movie embeddings.
+
+Finally, seed the table from `movies.txt`:
+
+```bash
+node reference_and_scripts/db_seeding.js
+```
+
+The seeding script reads `movies.txt`, splits the movie details into chunks, creates OpenAI embeddings for each chunk, and inserts them into the Supabase `movies` table.
 
 Run the frontend and backend together:
 
@@ -66,4 +84,4 @@ http://localhost:3000/recommendation
 
 ## Notes
 
-This project expects Supabase to have movie content available for vector search and an RPC function named `match_movies`. The RPC is defined in `reference_and_scripts/db_semantic_search.sql`. Without that database setup, the frontend will run, but recommendations will fail when the backend tries to search for matching movie context.
+This project expects Supabase to have movie content available for vector search and an RPC function named `match_movies`. The table is defined in `reference_and_scripts/movies.sql`, the RPC is defined in `reference_and_scripts/db_semantic_search.sql`, and `reference_and_scripts/db_seeding.js` loads the data from `movies.txt`. Without that database setup, the frontend will run, but recommendations will fail when the backend tries to search for matching movie context.
